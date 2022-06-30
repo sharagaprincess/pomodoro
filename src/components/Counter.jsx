@@ -22,7 +22,7 @@ const Counter = observer(() => {
     return (
         <div className='Counter'>
             <div className='Button' onClick={addCounter}>+</div>
-            <div className='Button timer'>
+            <div className='Button'>
                 {counter.isBreak ? counter.break : counter.counter}
             </div>
             <div className='Button' onClick={subtractCounter}>-</div>

@@ -8,6 +8,8 @@ export default class counterStore {
         this._isResume = false;
         this._isBreak = false;
         this._break = 5;
+        this._longBreak = 15;
+        this._session = 1;
         makeAutoObservable(this)
     }
 
@@ -35,6 +37,14 @@ export default class counterStore {
         this._break = val
     }
 
+    setSession(val){
+        this._session = val
+    }
+
+    setLongBreak(val){
+        this._longBreak = val
+    }
+
     get counter(){
         return this._counter
     }
@@ -57,5 +67,13 @@ export default class counterStore {
 
     get break(){
         return this._break
+    }
+
+    get session(){
+        return this._session
+    }
+
+    get longBreak(){
+        return this._longBreak
     }
 }

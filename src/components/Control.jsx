@@ -12,6 +12,7 @@ const Control = observer(() => {
         counter.setIsBreak(false)
         counter.setMinutes(counter.counter)
         counter.setSeconds(0)
+        counter.setSession(1)
     }
 
     const toggleBreak = () => {

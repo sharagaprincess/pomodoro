@@ -28,9 +28,16 @@ const Display = observer(() => {
     })
 
     useEffect(() => {
-        counter.isBreak ? counter.setMinutes(counter.break) 
-        :counter.setMinutes(counter.counter)
+        if(counter.isBreak) {
+            if(counter.session % 4 === 0) counter.setMinutes(counter.longBreak)
+            else counter.setMinutes(counter.break) 
+        }
+        else{
+            counter.setMinutes(counter.counter)
+            counter.setSession(counter.session + 1)
+        }
         counter.setSeconds(0)
+        counter.setIsResume(false)
     },[counter.isBreak])
 
     useEffect(() => {
@@ -41,6 +48,7 @@ const Display = observer(() => {
         <div className='Display'>
             <p>{counter._minutes < 10 ? "0" + counter.minutes : counter.minutes}:
             {counter.seconds < 10 ? "0" + counter.seconds : counter.seconds}</p>
+            <p style={{fontSize:'18px'}}>Session #{counter.session}</p>
         </div>
     )
 })

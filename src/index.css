@@ -1,6 +1,9 @@
-body {
-  display: flex;
-  flex-direction: row;
+body{
+  margin:0;
+  height:100%;
+  text-align:center;
+  display:flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
