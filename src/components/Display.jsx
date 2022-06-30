@@ -1,15 +1,18 @@
 import { useContext, useEffect } from "react"
 import { observer } from 'mobx-react-lite'
 import { Context } from ".."
+import ring from '../assets/ring.mp3'
 
 const Display = observer(() => {
     const {counter} = useContext(Context)
+    const audio = new Audio(ring)
 
     const tick = () => {
         if(counter.isResume){  
             if(counter.seconds === 0 && counter.minutes === 0) {
                 counter.setIsResume(false)
                 counter.setIsBreak(!counter.isBreak)
+                audio.play()
             }
             if(counter.seconds === 0) {
                 counter.setMinutes(counter.minutes - 1)
